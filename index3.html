@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <title>We Help工程師訓練營</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html{
+            font-size: 16px; /* 調整這個值全站放大縮小*/
+        }
+        body{
+            margin: 0;
+            font-family: "Microsoft JhengHei", Arial, sans-serif; 
+            background:linear-gradient(139deg,#1e3c72,#2a5298);
+            color:#333;
+            font-size: 1rem; /*16px*/
+            line-height: 1.6; /*行距*/
+            letter-spacing: 0.05rem; /*字距*/
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+        body::before{
+            content: "";
+            position: relative;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: 
+                repeating-linear-gradient(-45deg, #f5f5dccc, #f5f5dc71 10px, transparent 10px, transparent 20px);
+            z-index: 0;
+        }
+        /*波浪背景*/
+        .wave-wrapper{
+            width: 300px;
+            height: 300px;
+            position: fixed;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none; 
+        }
+        
+        .wave-wrapper.left-bottom{
+            bottom: 0;
+            left: 0;
+        }
+        .wave-wrapper.left-bottom .wave.one {
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 40%;
+            opacity: 0.4;
+            animation: drift 7s infinite linear;
+        }
+
+        .wave-wrapper.left-bottom .wave.two {
+            position: absolute;
+            bottom: -120px;
+            left: -120px;
+            width: 350px;
+            height: 350px;
+            border-radius: 40%;
+            opacity: 0.2;
+            animation: drift 9s infinite linear;
+            background: linear-gradient(135deg, rgb(241, 151, 217), rgb(227, 223, 228));
+        }
+
+        .wave-wrapper.right-top {
+            top: 0;
+            right: 0;
+        }
+
+        .wave-wrapper.right-top .wave.one {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 40%;
+            opacity: 0.4;
+            animation: drift 7s infinite linear;
+        }
+
+        .wave-wrapper.right-top .wave.three {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            top: -120px;
+            right: -120px;
+            opacity: 0.1;
+            border-radius: 40%;
+            animation: drift 11s infinite linear;
+            background: linear-gradient(135deg, rgb(241, 151, 217), rgb(227, 223, 228));
+        }
+
+
+        @keyframes drift {
+        0%{
+        transform: rotate(0deg);
+        }
+        100%{
+        transform: rotate(360deg);
+        }
+        }
+
+        .container{
+            position: relative;
+            z-index: 1;
+            background: rgba(255,255,255,0.95) ;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.8) ; /*0 8px 25px rgba(57, 44, 44, 0.373)*/
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2.5rem; /* 40px */
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1rem;
+            color:#1e3c72;
+            letter-spacing: 1px;
+        }
+        h2{
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color:#2a5298;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-left: 5px solid #2a5298;
+            padding-left: 10px;
+        }
+
+        p{
+            margin: 0.5rem 0  ;
+            text-align: justify;
+            font-size: 1rem;
+            line-height: 1.9;
+            text-indent: 2em;
+            max-width: 90rem; /*限制段落寬度，讓文字更好讀 */
+        }
+
+        p+h2{
+            margin-top: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wave-wrapper left-bottom">
+        <div class="wave one"></div>
+        <div class="wave two"></div>
+        
+    </div>
+    <div class="wave-wrapper right-top">
+        <div class="wave one"></div>
+        <div class="wave three"></div>
+    </div>
+    
+
+     
+    
+        <div class="container">
+            <h1>We Help 第七屆訓練營申請表</h1>
+
+            <h2>1. 個人簡介和申請動機</h2>
+            <p>A. 彭彭老師及各位評審老師好，我叫周愛倫，畢業於中國醫藥大學，今年27歲，畢業後就從事工安這份工作至少有3年的時間了，在這過程中隨著AI的進步，我開始在工作中覺得每年每月都重複著同樣代辦事項的事情開始感到沒有效率，像是危險性機械設備檢點表是每個月將表格收齊後，再逐一靠人工的方式清點缺繳單位，我認為這個方式極為耗時、沒效率，所以在思考能否將每月的點檢表自動彙整成報表的形式，另一塊是工安常常要處理職災通報這一塊，但在處理傷患當下往往沒有時間向上逐一呈報主管，我那時候就在想現在人臉辨識功能蠻強大的，是不是結合Line API去創造一個工安異常通報及時通知的系統，加速訊息的傳遞。
+    後來，因為興起這樣的念頭於是上網搜尋，在Medium上的一篇討論關於「如何成為軟體工程師」的文章，筆者說道如果要成為一名工程師推薦可以從Python去下手，所以我後來就下定決心要學程式語言這一塊，於是在Youtube中搜尋有關於Python教學課程，跳出來的結果中有一個版面看起來很乾淨俐落，我就發現他有一系列的Python學習課程，然後還細分不同學習階段的播放清單，我就從最一開始的下載、安裝開啟我的Python網路課程。</p>
+            <h2>2. 曾經做過哪些軟體工程技術相關的學習？若有作品請分享給我們</h2>
+            <p>A. 彭彭老師的youtube頻道學習Python;其次是有關前端網頁開發的youtube簡易教學如何利用HTML創建自己的網頁，我也有試著自己創作一個屬於自己的網頁，過程困難重重XDD，雖然看作者說著每個語法的意思跟寫法好像很簡單，但自己實際操作起來真~不簡單，如果能從程式語言最源頭去了解會不會比較能理解?
+                <br>後來我有試著利用暫停鍵一個一個去慢慢理解，然後將他記錄在一個程式語言專用的筆記本裡，這樣以後有相關的問題就能夠回去翻閱。
+                <br>P.S 後來有給自己一個小功課，那就是去模仿信箱網站登入的畫面，也有貼文在github pages裡面。
+            </p>
+
+            <h2>3. 如果參與這個訓練，會怎麼安排學習時間？</h2>
+            <p>A. 我的學習規劃會以「每天都有投入」及把這次訓練當作轉職的首要任務，並在Notion去記錄每日上過的課程與完成項目，並每週檢討是否達標。<br>
+                *平日：安排4~6小時的時間，專注於課程的內容與程式的練習。<br>
+                *假日：安排至少8小時，用來挑戰進階題目、開發小專案參與團隊合作及回顧與檢討這一週的課程。<br>
+                </p>
+
+            <h2>4. 軟體技術日新月異，如何確定投入的領域是正確有回報的？</h2>
+            <p>A. 在我看來，更因為技術日新月異及時代的進步，使得電腦科學的發展更能觸發對人們生活上的方便性，當然在一開始一定會有所謂的磨合期，因為不習慣也不是平常生活中常使用到的，所以需要去進行一個良性的溝通跟學習才能促進人與AI的融合。
+    而對於我來說，學習是一件快樂的事情，人就是要「活到老學到老」我很認同這句話，花草樹木需要靠澆水、施肥、風吹日晒雨淋來漸漸茁壯;小狗需要經過小時候不斷的行為訓練學習、模仿主人等，長大成為一隻敏捷忠誠的家犬，連機器人都在學習了更何況是我們人類? 應該也要不停的學習，當然不可否認的一定會有跌倒的時候，但我們要學會如何從中找出問題並解決問題才是。雖然我不能百分之百確定這是否是正確的路，但我告訴自己我要在這半年活出屬於自己的一條康莊大道。
+    </p>
+            <h2>5. 請描述一件產生明顯負面情緒的經歷，如何處理該情緒？</h2>
+            <p>A. 記得大二那一年，我選修了系上的一門微積分進階課程，大一的時候微積分是必修，每當臨近考前系上的人都是一片哀號，但我對微積分不僅不排斥，反而覺得蠻有趣的，會好奇這些函式怎麼被發明出來的。所以想說趁大二還不忙的時候來選修一下，也給自己挑戰磨練的機會。沒想到第一堂課就完全顛覆了想像只有滿滿的挫折感。<br>那次期中考，全班只有一個人及格，我從老師手上接過考卷一看只有10分，當下情緒直接跌落谷底，滿腦子都是懊悔與自我懷疑「我是真的不會嗎?」、「難道我大一學的是國小數學嗎?」<br>心中開始問自己對自己的解題能裡開始自我懷疑。那天晚上，我戴著耳機在學校操場慢跑邊跑邊思考到底是哪個環節出錯了。明明上課都有認真聽，回去也有做練習題怎麼還會是這樣的結果?與其害怕學期末我被二一，我更不想浪費這一學期在自怨自艾中。於是接下來幾天，我幾乎都泡在圖書館裡，抱著一本本厚厚的微積分參考書跟那張只有10分的考卷，努力嘗試自己把每一題解出來。<br>碰巧隔壁桌有位修同樣課程的的別系同學，她考的也不盡理想。雖然上課時我們從未交流，但因為在這次的機緣，我們開始一起研究考題。我發現當我試著把解題過程講給她聽時，反而自己真正理解了，也慢慢能解出來。我突然像起一句話:「一道題目要看你會不會，首先要先學會把它變成你自己的。」那一刻我突然明白，所謂「會不會」不只是算過表面上的懂，而是要能擺知識轉化成自己的東西。從那之後，也不再對自己自責，反而很感謝有這個契機，讓我用新的方式去學習。<br>最後我們也變成好朋友，還一起相約每次上完課後要一起研究更多題目，把彼此都教會。這段經歷讓我明白，負面情緒是過程的一部分，但只要願意正視問題、尋求方法並持續努力，終究會在挫折中找到突破的契機。</p>
+
+            <h2>6.	關於這份申請網頁，分享一個開發時的技術心得</h2>
+            <p>A. 一開始聽到要用GitHub Pages時，我連聽都沒聽過但也沒有因此就馬上放棄，也不知道是為什麼有一股力量將我向前推，我開始瘋狂地在網路上搜尋如何從無到有去開發這個網頁，也慢慢推開這程式語言的大門，是一個浩瀚宇宙，但卻一次又一次的開拓我的眼界。</p>
+
+            <h2>7.	如何看待人工智慧的發展對軟體工程師的影響？</h2>
+            <p>A. 常常聽到有人問說，人工智慧的大躍進是否會影響軟體工程師的離職率，並非沒有這可能，但我曾經聽到一個在矽谷工作的工程師這麼說：「那是工程師還不夠資深或對自己的能力提升不夠積極，AI的功能反而是幫助軟體工程師能一直持續在AI的世界裡繼續航行的，以前沒有AI的時候，我們要靠自己的能力去debug，但現在有了它反而我們能省去這個時間，去發掘更多能運用的上電腦科學的知識」</p>
+
+            <h2>8. 從上次提出申請至今，多做了哪些努力？( 第一次申請不用回答 )</h2>
+            <p>A. 因為第一次申請，故不需回答。</p>
+            
+            <h2>9. 其他想要對我們說的事情？</h2>
+            <p>A. 首先，不免俗還是要謝謝彭彭老師開創了一個這麼棒的Youtube頻道，每一個頻道內容都很精彩豐富，在發現這訓練營的時候，我就在想老師人真的好好不藏私地分享自己的所學還拍成影片，然後願意親自教大家如何轉職成軟體工程師，還培育一群助教老師要來替大家解惑，前幾屆的線上分享會我有翻來看，老師很語重心長的一句話，「我希望妳們能在課堂中有所學習到，而不是來花錢上課了事而已，那這樣你們大可把這一大筆錢拿去玩樂，而不是在這裡浪費自己的時間和人生。」我聽完後其實有很大的體悟，除了老師叫我們要把錢花在刀口上(XDD，還第一次聽到有老師會說不要來這裡浪費時間。之所以想要加入老師的訓練營，讓我想起以前在國中數學補習班的時候，我的數學老師曾經對我們說：「在怎麼厲害的老師，如果學生永遠聽不懂他在說什麼，再怎麼教也是一樣學不會。」，而對於我來說目前經過了兩個多月的時間持續學習程式，從不怎麼會打語言到現在可以邊老師上課邊跟者打，然後還能舉一反三，對我來說是一個很大的成就感。</p>
+
+    </div>
+    
+  
+</body>
+</html>
